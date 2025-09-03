@@ -1,0 +1,20 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="container-fluid mt-4" id="container-posts">
+        <h1>Following Posts</h1>
+        <hr>
+
+        <!-- Following Posts Section -->
+        {% include 'network/posts.html' %}
+
+        <!-- Pagination -->
+        {% include 'network/pagination.html' %}
+
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/post.js' %}"></script>
+{% endblock %}

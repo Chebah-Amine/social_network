@@ -1,0 +1,43 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="container-fluid mt-4" id="container-posts">
+        <h1>All posts</h1>
+        <hr>
+        <!-- New Post Section -->
+         {% if user.is_authenticated %}
+            <div class="new-post">
+                <form id="new-post-form" method="post" action="{% url 'new_post' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Post</button>
+                </form>
+                {% if form.errors %}
+                    <div class="error" id="error-form">
+                        <ul>
+                            {% for field, errors in form.errors.items %}
+                                {% for error in errors %}
+                                    <li>{{ field }}: {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            <hr>
+        {% endif %}
+    
+        <!-- All Posts Section -->
+        {% include 'network/posts.html' %}
+    
+        <!-- Pagination -->
+        {% include 'network/pagination.html' %}
+
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/post.js' %}"></script>
+{% endblock %}

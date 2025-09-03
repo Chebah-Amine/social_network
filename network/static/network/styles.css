@@ -1,0 +1,75 @@
+#container-posts {
+    width: 80%;
+    justify-content: center;
+}
+
+.new-post {
+    border: 2px solid black;
+    margin: 1rem 0 1rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    list-style: none;
+}
+
+.new-post label {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Post Container */
+.card-body {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Hover Effect for Posts */
+.card-body:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Section */
+.post-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* Post Content */
+.post-content {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Footer Section */
+.post-footer {
+    margin-top: 10px;
+}
+
+.post-footer .btn {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    align-items: center;
+}
+
+/* Edit Button */
+.edit-btn {
+    font-size: 0.9rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+}

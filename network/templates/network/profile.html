@@ -1,0 +1,42 @@
+{% extends 'network/layout.html' %}
+{% load static %}
+
+{% block body%}
+    <div class="container-fluid mt-4" id="profile-container">
+        <div id="profile-header">
+            <h2 id="username">@{{ profile_user.username }}</h2>
+            {% if user.is_authenticated and user != profile_user %}
+                <button class="btn {% if is_following %}btn-secondary{% else %}btn-primary{% endif %}" id="follow-btn">
+                    {% if is_following %}Unfollow{% else %}Follow{% endif %}
+                </button>
+            {% endif %}
+            <div id="profile-info" class="row">
+                <div class="col-4 text-center" id="following">
+                    <span class="info-label">Following</span>
+                    <p class="info-count">{{ following }}</p>
+                </div>
+                <div class="col-4 text-center" id="followers">
+                    <span class="info-label">Followers</span>
+                    <p class="info-count">{{ followers }}</p>
+                </div>
+                <div class="col-4 text-center" id="posts-profile">
+                    <span class="info-label">Posts</span>
+                    <p class="info-count">{{ nb_posts }}</p>
+                </div>
+            </div>
+        </div>
+        <div id="profile-body">
+            {% include 'network/posts.html' %}
+            {% include 'network/pagination.html' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'network/profile.css' %}">
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/profile.js' %}"></script>
+    <script src="{% static 'network/post.js' %}"></script>
+{% endblock %}

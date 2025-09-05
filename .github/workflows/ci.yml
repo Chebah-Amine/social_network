@@ -38,6 +38,7 @@ jobs:
 
       - name: Run tests
         run: |
+          cd app/
           python manage.py migrate
           pytest
 
@@ -47,5 +48,6 @@ jobs:
           args: >
             -Dsonar.projectKey=Chebah-Amine_social_network
             -Dsonar.organization=chebah-amine
+          wait: true
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

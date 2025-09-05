@@ -1,13 +1,13 @@
 # -d = detached / launch containers in background
 # --build = force image rebuild before starting containers
 start:
-	docker compose up -d --build
+	docker compose -f ./docker/docker-compose.yml up -d --build
 
 stop: 
-	docker compose down
+	docker compose -f ./docker/docker-compose.yml down
 
 logs: 
-	docker compose logs -f
+	docker compose -f ./docker/docker-compose.yml logs -f
 
 exec: 
-	docker compose exec web bash
+	docker compose -f ./docker/docker-compose.yml exec web bash

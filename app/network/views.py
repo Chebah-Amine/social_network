@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.core.paginator import Paginator
@@ -25,6 +25,7 @@ class NewPostForm(forms.Form):
         max_length=500,
     )
 
+
 @login_required
 def index(request):
     try:
@@ -42,7 +43,7 @@ def index(request):
         return render(
             request,
             "network/error.html",
-            {"code": 400, "message": "Error loading all posts, {e}"},
+            {"code": 400, "message": f"Error loading all posts, {e}"},
         )
 
     return render(
@@ -118,7 +119,7 @@ def following_posts(request):
         return render(
             request,
             "network/error.html",
-            {"code": 400, "message": "Error loading following posts, {e}"},
+            {"code": 400, "message": f"Error loading following posts, {e}"},
         )
     return render(request, "network/following.html", {"page": page_obj})
 

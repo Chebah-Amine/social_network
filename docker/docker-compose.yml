@@ -9,7 +9,6 @@ services:
       - ../.env
     volumes:
       - ../app:/app
-      - ../requirements:/app/requirements
     ports:
       - "8000:8000"
 

@@ -49,6 +49,5 @@ jobs:
             -Dsonar.projectKey=Chebah-Amine_social_network
             -Dsonar.organization=chebah-amine
             -Dsonar.python.coverage.reportPaths=./app/coverage.xml
-          wait: true
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

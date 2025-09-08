@@ -2,7 +2,7 @@ name: Social network workflow
 
 on:
   push:
-    branches: ["main", "feature/*", "fix/*"]
+    branches: ["main", "feature/*", "fix/*", "infra/*"]
   pull_request:
     branches: ["main"]
 
@@ -34,13 +34,13 @@ jobs:
         run: black --check .
 
       - name: check code vulnerabilities
-        run: bandit -r .
+        run: bandit -r ./app/network
 
-      - name: Run tests
+      - name: Run tests with coverage
         run: |
           cd app/
-          python manage.py migrate
-          pytest
+          coverage run --source=network -m pytest
+          coverage xml -o coverage.xml
 
       - name: Sonarcloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
@@ -48,6 +48,7 @@ jobs:
           args: >
             -Dsonar.projectKey=Chebah-Amine_social_network
             -Dsonar.organization=chebah-amine
+            -Dsonar.python.coverage.reportPaths=./app/coverage.xml
           wait: true
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

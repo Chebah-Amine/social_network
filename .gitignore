@@ -1,22 +1,14 @@
-# Fichiers Python compilés
+# Compiled files
 __pycache__/
 *.py[cod]
 *.pyo
 
-# Environnement virtuel
-venv/
-.env/
-
-# Base de données SQLite
+# SQLite database
 db.sqlite3
 
-# Fichiers temporaires
-*.log
-
-# Configs locales
 *.env
 
-# Cache et fichiers générés
+# Cache and generated files
 *.pot
 *.pyc
 *.pyd

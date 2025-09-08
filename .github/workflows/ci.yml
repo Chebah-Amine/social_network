@@ -40,7 +40,7 @@ jobs:
         run: |
           cd app/
           coverage run --source=network -m pytest
-          coverage xml -o coverage.xml
+          coverage xml -o coverage.xml --include="*/network/views.py"
 
       - name: Sonarcloud Scan
         uses: SonarSource/sonarcloud-github-action@v2

@@ -87,6 +87,7 @@ make start
 
 ```
 app/
+|── .github/workflows/ # CI pipelines
 │── network/         # Core app (models, views, forms, urls)
 │── project4/        # Django project settings
 │── tests/           # Unit and integration tests
@@ -99,5 +100,5 @@ requirements/        # Python dependencies
 ## 🚀 Future Improvements
 
 * Add notifications for likes and follows
-* Enhance frontend with React or Vue
+* Enhance frontend with React
 * Deploy on a production server with HTTPS (Heroku / Render / Fly.io)
